@@ -1,0 +1,143 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net (Default Deny)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Primitive helpers
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidWorkspace(data, userId) {
+      return data.keys().hasAll([
+          'ownerId',
+          'version',
+          'onboardingComplete',
+          'isDemoData',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'ownerId',
+          'version',
+          'onboardingComplete',
+          'isDemoData',
+          'profile',
+          'resumeVersions',
+          'activeResumeId',
+          'companies',
+          'targetRoles',
+          'jobDescriptions',
+          'evidenceRecords',
+          'gapExplanations',
+          'companyDnaNarrative',
+          'roadmap',
+          'portfolioProjects',
+          'interviewSessions',
+          'applications',
+          'linkedInPosts',
+          'reports',
+          'readinessSnapshots',
+          'learningResources',
+          'roleMasteryTrack',
+          'companyPrepTracks',
+          'settings',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.ownerId is string
+        && data.ownerId == userId
+        && data.ownerId == request.auth.uid
+        && data.version is int
+        && data.version >= 1
+        && data.onboardingComplete is bool
+        && data.isDemoData is bool
+        && (!('activeResumeId' in data) || data.activeResumeId == null || (data.activeResumeId is string && data.activeResumeId.size() <= 128))
+        && (!('companyDnaNarrative' in data) || data.companyDnaNarrative == null || (data.companyDnaNarrative is string && data.companyDnaNarrative.size() <= 20000))
+        && (!('resumeVersions' in data) || (data.resumeVersions is list && data.resumeVersions.size() <= 25))
+        && (!('companies' in data) || (data.companies is list && data.companies.size() <= 20))
+        && (!('targetRoles' in data) || (data.targetRoles is list && data.targetRoles.size() <= 40))
+        && (!('jobDescriptions' in data) || (data.jobDescriptions is list && data.jobDescriptions.size() <= 40))
+        && (!('evidenceRecords' in data) || (data.evidenceRecords is list && data.evidenceRecords.size() <= 500))
+        && (!('portfolioProjects' in data) || (data.portfolioProjects is list && data.portfolioProjects.size() <= 30))
+        && (!('interviewSessions' in data) || (data.interviewSessions is list && data.interviewSessions.size() <= 60))
+        && (!('applications' in data) || (data.applications is list && data.applications.size() <= 250))
+        && (!('linkedInPosts' in data) || (data.linkedInPosts is list && data.linkedInPosts.size() <= 100))
+        && (!('reports' in data) || (data.reports is list && data.reports.size() <= 60))
+        && (!('readinessSnapshots' in data) || (data.readinessSnapshots is list && data.readinessSnapshots.size() <= 200))
+        && (!('learningResources' in data) || (data.learningResources is list && data.learningResources.size() <= 150))
+        && (!('roleMasteryTrack' in data) || data.roleMasteryTrack == null || data.roleMasteryTrack is map)
+        && (!('companyPrepTracks' in data) || (data.companyPrepTracks is map && data.companyPrepTracks.size() <= 20))
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    match /users/{userId}/workspaces/{workspaceId} {
+      allow get: if isValidId(userId) && isValidId(workspaceId) && isOwner(userId);
+      allow list: if isValidId(userId) && isOwner(userId) && resource.data.ownerId == request.auth.uid;
+
+      allow create: if isValidId(userId)
+        && isValidId(workspaceId)
+        && isOwner(userId)
+        && isValidWorkspace(incoming(), userId)
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isValidId(userId)
+        && isValidId(workspaceId)
+        && isOwner(userId)
+        && isValidWorkspace(incoming(), userId)
+        && incoming().ownerId == existing().ownerId
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && incoming().diff(existing()).affectedKeys().hasOnly([
+          'version',
+          'onboardingComplete',
+          'isDemoData',
+          'profile',
+          'resumeVersions',
+          'activeResumeId',
+          'companies',
+          'targetRoles',
+          'jobDescriptions',
+          'evidenceRecords',
+          'gapExplanations',
+          'companyDnaNarrative',
+          'roadmap',
+          'portfolioProjects',
+          'interviewSessions',
+          'applications',
+          'linkedInPosts',
+          'reports',
+          'readinessSnapshots',
+          'learningResources',
+          'roleMasteryTrack',
+          'companyPrepTracks',
+          'settings',
+          'updatedAt'
+        ]);
+
+      allow delete: if isValidId(userId) && isValidId(workspaceId) && isOwner(userId);
+    }
+  }
+}

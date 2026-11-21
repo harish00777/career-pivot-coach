@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+:root {
+  --charcoal: #12100F;
+  --dark-surface: #1B1714;
+  --dark-brown: #211A16;
+  --earth-brown: #382920;
+  --burnt-amber: #B86D37;
+  --warm-white: #EAE4DC;
+  --muted-stone: #A69A8C;
+}
+
+@layer base {
+  html {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--charcoal);
+    color: var(--warm-white);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--charcoal);
+    color: var(--warm-white);
+    overflow-x: hidden;
+  }
+
+  .font-editorial,
+  .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    text-wrap: balance;
+  }
+
+  .font-sans-ui {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .font-mono-tabular {
+    font-variant-numeric: tabular-nums;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  a[href],
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  input[type="submit"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  :focus-visible {
+    outline: 1.5px solid var(--burnt-amber);
+    outline-offset: 3px;
+  }
+}
+
+.arch-panel {
+  background-color: var(--dark-surface);
+  border: 1px solid var(--earth-brown);
+}
+
+.arch-panel-elevated {
+  background-color: var(--dark-brown);
+  border: 1px solid rgba(184, 109, 55, 0.3);
+}
+
+.arch-input {
+  width: 100%;
+  background-color: var(--dark-brown);
+  border: 1px solid var(--earth-brown);
+  color: var(--warm-white);
+  outline: none;
+  transition: border-color 180ms ease;
+}
+
+.arch-input::placeholder {
+  color: rgba(166, 154, 140, 0.55);
+}
+
+.arch-input:focus {
+  border-color: var(--burnt-amber);
+}
+
+.arch-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--dark-brown);
+  border: 1px solid rgba(184, 109, 55, 0.78);
+  color: var(--warm-white);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.arch-btn-primary:hover:not(:disabled) {
+  background-color: var(--earth-brown);
+  border-color: var(--burnt-amber);
+}
+
+.arch-btn-primary:disabled {
+  opacity: 0.45;
+}
+
+.arch-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: 1px solid var(--earth-brown);
+  color: var(--warm-white);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.arch-btn-secondary:hover:not(:disabled) {
+  background-color: var(--dark-brown);
+  border-color: rgba(184, 109, 55, 0.6);
+}
+
+.arch-btn-secondary:disabled {
+  opacity: 0.45;
+}
+
+/* Hide scrollbars cleanly in horizontal module strip while preserving scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--earth-brown);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--burnt-amber);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  html,
+  body {
+    background: #ffffff !important;
+    color: #12100f !important;
+  }
+  .print-sheet {
+    background: #ffffff !important;
+    color: #12100f !important;
+    border-color: #d6cec4 !important;
+    box-shadow: none !important;
+  }
+  .print-sheet * {
+    color: #12100f !important;
+    border-color: #d6cec4 !important;
+  }
+}

@@ -1,0 +1,1654 @@
+ROLEXIQ — COMPLETE PRODUCT REDESIGN AND FUNCTIONALITY CORRECTION
+
+Act as a principal product designer, senior UI/UX engineer, full-stack architect, AI engineer and product quality specialist.
+
+You are working on an EXISTING application called **RolexIQ — From Potential to Proven Capability**.
+
+The application has already been generated using React, TypeScript, Vite, Express, Gemini API, Firebase/IndexedDB, Tailwind CSS, Framer Motion and Three.js.
+
+Your task is to transform the existing RolexIQ application into a genuinely premium, modern, elegant, intuitive and fully functional AI career intelligence product.
+
+This is a correction and improvement task, not a request to generate another generic application.
+
+**IMPORTANT: Inspect the existing source code, understand its architecture and identify the causes of the problems before modifying anything.**
+
+Do not simply change colours and add animations. The application has significant UX and functional problems that must be addressed.
+
+Preserve working business logic, existing user data, established data models and integrations wherever possible. Refactor or replace defective components when necessary.
+
+Do not delete major product features to make the application easier to build.
+
+The result must look and behave like a professionally designed technology product.
+
+---
+
+# PART 1 — UNDERSTAND THE EXISTING PROBLEMS
+
+The following problems have been identified through actual use of the current application.
+
+### Problem 1: The overall appearance is not premium
+
+The existing interface is dominated by extremely dark green and black backgrounds.
+
+The colour usage is excessive, the red accents are too harsh and the interface lacks visual warmth.
+
+The large serif headings, dark surfaces, borders and oversized dashboard sections do not create the sophisticated appearance intended for RolexIQ.
+
+The overall result feels heavy, cluttered and visually unflattering.
+
+### Problem 2: The dashboard is unnecessarily complicated
+
+The dashboard contains too many sections and information blocks.
+
+The large career-transition headline, oversized 3D constellation, readiness indicators, 15-step career evidence spine, multiple skill-gap panels and several bottom cards compete for attention.
+
+The user cannot immediately identify what they should do next.
+
+### Problem 3: Resume Intelligence is not functioning correctly
+
+The current Resume Intelligence screen shows:
+
+"Server returned an unreadable response (HTTP 200)."
+
+The resume workflow is unclear. Users cannot confidently understand what they are supposed to do after uploading their resume.
+
+### Problem 4: Interview Arena is broken
+
+The Gemini Live interview fails and falls back to speech-to-text and text-to-speech.
+
+However:
+- The AI does not audibly ask the first question.
+- The interface remains stuck on "Preparing question..."
+- The microphone workflow is unclear.
+- The conversation does not proceed naturally.
+- The candidate cannot complete a proper interview.
+- Evaluation is not reliably triggered or generated.
+
+This is a critical failure because Interview Arena is one of RolexIQ's primary differentiators.
+
+### Problem 5: LinkedIn Studio is visually cluttered
+
+The feature is useful, but the purpose is unclear.
+
+Too many evidence items, panels, controls and content blocks appear together.
+
+The user does not immediately understand how to generate a LinkedIn post from their achievements.
+
+### Problem 6: Other modules lack understandable workflows
+
+Company DNA, Skill Gap Explorer, Career Roadmap, Portfolio Studio, Career Progress and Reports contain too much information without sufficiently explaining the user's next action.
+
+The modules look like separate information pages rather than connected product workflows.
+
+### Problem 7: Motion and interaction are poor
+
+Existing animations do not produce the polished, smooth experience expected.
+
+Interactive elements need clear hover states, clickable cursor behaviour, smoother transitions and better interaction feedback.
+
+### Problem 8: The overall product purpose is unclear
+
+RolexIQ should guide candidates from their current capabilities to the requirements of their target companies.
+
+At present, the user sees many sections and large amounts of information without understanding the relationship between them.
+
+**Fix the complete user experience around this central purpose.**
+
+---
+
+# PART 2 — COMPLETE VISUAL REDESIGN
+
+## 2.1 New visual direction
+
+I want RolexIQ to feel like a premium, sophisticated, carefully designed commercial SaaS product.
+
+The design should be:
+
+- Modern.
+- Minimal.
+- Elegant.
+- Editorial.
+- Refined.
+- Visually balanced.
+- Technologically advanced.
+- Professional.
+- Distinctive.
+- Beautiful without unnecessary decoration.
+
+The product should feel thoughtfully designed by an experienced product design team.
+
+Do not make it resemble:
+- A generic AI dashboard.
+- A college management system.
+- An ordinary admin panel.
+- A cryptocurrency website.
+- A gaming interface.
+- A dark cybersecurity control panel.
+- A collection of unrelated cards.
+
+Think of a high-end professional product with sophisticated typography, excellent spacing, beautiful layouts, restrained animation and strong attention to detail.
+
+## 2.2 Redesign colour usage
+
+The original RolexIQ brand palette remains the inspiration:
+
+- Charcoal Black: #171717
+- Forest Green: #06110C
+- Crimson Red: #A31C1B
+
+However, DO NOT use these three colours as the entire application's background system.
+
+The current implementation uses too much dark green, making the application look monotonous and visually heavy.
+
+Build a much more sophisticated colour system around them.
+
+### Recommended palette
+
+<escape>--brand-charcoal: #171717;
+--brand-forest: #06110C;
+--brand-crimson: #A31C1B;
+
+--page-background: #F4F1EB;
+--surface: #FCFBF8;
+--surface-secondary: #EAE7E0;
+--surface-muted: #F0EEE8;
+
+--text-primary: #20221F;
+--text-secondary: #686A64;
+--text-muted: #92938C;
+
+--border-subtle: #E4E0D7;
+--accent-soft: #E8EDE7;
+--success: #387A5A;
+--warning: #B88946;
+--danger: #A31C1B;</escape>
+
+Use the palette intelligently.
+
+Design principle:
+
+- Warm off-white and neutral surfaces should provide breathing room.
+- Charcoal should provide contrast and visual authority.
+- Forest green should be used for strong brand moments, navigation accents and selected surfaces.
+- Crimson should be reserved for primary actions and meaningful highlights.
+- Do not make every button red.
+- Do not make every section forest green.
+- Do not use dark borders everywhere.
+
+The default dashboard and most workspaces should use a refined light editorial appearance.
+
+You may retain a sophisticated dark appearance for the Interview Arena, selected immersive components or an optional dark theme.
+
+The final result must feel cohesive.
+
+## 2.3 Typography redesign
+
+Replace the current typography combination if it is responsible for the heavy appearance.
+
+Use a modern, polished type system.
+
+Recommended direction:
+
+- Primary UI typography: Inter, Manrope or Plus Jakarta Sans.
+- Display typography: Sora or a similarly sophisticated contemporary typeface.
+
+Use a consistent type scale.
+
+Suggested desktop sizes:
+
+- Primary page title: 28–34 px.
+- Section heading: 20–24 px.
+- Card heading: 16–18 px.
+- Body text: 14–16 px.
+- Supporting text: 12–13 px.
+- Small labels: 11–12 px.
+
+Use appropriate font weights, line heights and letter spacing.
+
+Avoid:
+- Extremely large headings.
+- Serif typography everywhere.
+- Tiny body text.
+- Excessive uppercase labels.
+- Too many different font styles.
+
+Typography should immediately communicate hierarchy.
+
+## 2.4 Spacing and layout
+
+Use a consistent spacing system.
+
+Introduce:
+- Generous whitespace.
+- Consistent alignment.
+- Balanced content widths.
+- Subtle borders.
+- Refined corner radii.
+- Restrained shadows.
+- Comfortable reading widths.
+
+Do not fill every available screen area with a card.
+
+Use whitespace as an intentional design element.
+
+Make important content visually dominant and secondary information less intrusive.
+
+## 2.5 Navigation
+
+Redesign the sidebar.
+
+The current sidebar is too visually heavy.
+
+Create a refined navigation system with:
+
+- Compact RolexIQ identity.
+- Clear section names.
+- Elegant icons.
+- Subtle selected-state indicator.
+- Smooth active transitions.
+- Consistent spacing.
+- Clear hover feedback.
+
+Use a width of approximately 220–240 px on desktop.
+
+On mobile, use a well-designed collapsible navigation or bottom navigation with a secondary menu.
+
+Do not use bright red backgrounds for every selected navigation item.
+
+The user's current workspace should be immediately recognisable.
+
+## 2.6 Button and cursor behaviour
+
+This is important.
+
+Every genuinely interactive element must have an appropriate interactive cursor.
+
+Use:
+
+`cursor: pointer`
+
+for:
+- Buttons.
+- Navigation links.
+- Tabs.
+- Interactive cards.
+- Clickable rows.
+- Dropdown triggers.
+- Expandable sections.
+- Selectable skill items.
+- Modal actions.
+- Interactive charts.
+- Action icons.
+
+Do not show a hand cursor on decorative or disabled elements.
+
+Every interactive element must also have:
+
+- Default state.
+- Hover state.
+- Active state.
+- Focus state.
+- Disabled state where applicable.
+
+Use subtle hover movement, colour changes and shadows.
+
+Avoid excessive bouncing, scaling or dramatic transformations.
+
+Buttons must feel responsive and polished.
+
+## 2.7 Animation and motion redesign
+
+The current animations are not sufficiently refined.
+
+Use Framer Motion to introduce a carefully designed motion system.
+
+Implement:
+
+- Smooth page transitions.
+- Subtle fade-and-rise entrances.
+- Refined tab transitions.
+- Hover elevation.
+- Gentle card perspective.
+- Smooth expanding panels.
+- Sophisticated progress animations.
+- Interactive chart transitions.
+- Smooth modal opening and closing.
+- Animated loading skeletons.
+- Subtle navigation transitions.
+- Natural interview-stage transitions.
+
+### 3D design
+
+Retain 3D elements only when they improve the experience.
+
+The existing oversized 3D skill constellation should not dominate the dashboard.
+
+Reduce its size and visual intensity.
+
+Consider a small interactive 3D element in the overview, or a refined animated visual that represents career progression.
+
+Use CSS 3D or Three.js where appropriate.
+
+Do not create unnecessary 3D objects on every page.
+
+Make 3D elements decorative and performance-efficient.
+
+Respect `prefers-reduced-motion`.
+
+The application must remain smooth on ordinary laptops and mobile devices.
+
+---
+
+# PART 3 — REDESIGN THE INFORMATION ARCHITECTURE
+
+The user should understand the purpose of every module immediately.
+
+The product must guide them through a connected journey:
+
+**My Profile → Target Companies → Skill Gaps → Learning Plan → Portfolio → Interviews → Progress → Career Outcomes.**
+
+Every section should answer three questions:
+
+1. What does this feature do?
+2. Why is it useful to me?
+3. What should I do next?
+
+Each workspace must have:
+
+- A clear page title.
+- A single concise description.
+- A primary action.
+- A secondary action only when necessary.
+- A clean content hierarchy.
+- Contextual supporting information.
+- Useful empty states.
+- Clear success and error feedback.
+
+Do not display lengthy instructional paragraphs throughout the interface.
+
+Put advanced details into:
+- Tabs.
+- Drawers.
+- Accordions.
+- Tooltips.
+- Expandable sections.
+- Secondary report views.
+
+The default view should show only what the user needs to take their next action.
+
+Preserve the following modules:
+
+1. Overview.
+2. Resume Intelligence.
+3. Company DNA.
+4. Skill Gap Explorer.
+5. Career Roadmap.
+6. Portfolio Studio.
+7. Interview Arena.
+8. Career Progress.
+9. Application Tracker.
+10. LinkedIn Studio.
+11. Reports.
+12. Settings.
+
+All modules must remain interconnected.
+
+---
+
+# PART 4 — REDESIGN THE OVERVIEW DASHBOARD
+
+The dashboard is the user's starting point.
+
+It must communicate the candidate's current position and the next best action.
+
+Do not use the existing enormous career-transition brief and oversized 3D object as the primary composition.
+
+Do not show an overwhelming number of cards.
+
+### Recommended dashboard layout
+
+**Top section**
+
+Small contextual greeting:
+
+"Good afternoon, Sahaana."
+
+Main headline:
+
+"Your career journey."
+
+Supporting description:
+
+"Understand your readiness, close your most important skill gaps and prepare for your target roles."
+
+Display the target role as a clear contextual label.
+
+**Primary action**
+
+A prominent action based on the user's current progress.
+
+Examples:
+
+- Complete your resume profile.
+- Add a target job description.
+- Review your most important skill gaps.
+- Continue this week's learning plan.
+- Practise your next interview.
+
+The action must change according to actual data.
+
+**Career readiness**
+
+Show one clear readiness indicator.
+
+Make the calculation accessible through a small explanatory drawer.
+
+Do not make readiness the only thing dominating the screen.
+
+**Next best action**
+
+A prominent section explaining the highest-priority action.
+
+Show:
+- What needs to be done.
+- Why it matters.
+- Expected outcome.
+- A direct action button.
+
+**Target company preparation**
+
+Show selected organisations in a compact, sophisticated layout.
+
+Allow the user to open Company DNA directly.
+
+**Current learning plan**
+
+Show the current week and a small number of important tasks.
+
+**Latest interview**
+
+Show the latest actual interview result, if available.
+
+**Application progress**
+
+Show a compact application summary.
+
+### Remove or redesign the existing 15-step career evidence spine
+
+It should not dominate the dashboard.
+
+Replace it with a compact career journey tracker.
+
+Show a few meaningful milestones:
+- Profile established.
+- Target roles analysed.
+- Skill gaps identified.
+- Learning in progress.
+- Interview preparation.
+- Career progress.
+
+Allow the user to expand the full milestone history when needed.
+
+Do not fill the default screen with 15 small boxes.
+
+### Dashboard data rules
+
+- No invented readiness.
+- No invented project completions.
+- No invented interviews.
+- No fabricated progress.
+- No automatically loaded demonstration candidate by default.
+
+The dashboard should start with a useful, elegant empty state for a new candidate.
+
+Provide an optional "Explore demo workspace" action.
+
+Demo data must remain clearly separated and removable.
+
+---
+
+# PART 5 — FIX RESUME INTELLIGENCE COMPLETELY
+
+This module must become a meaningful working product feature.
+
+It currently produces:
+
+"Server returned an unreadable response (HTTP 200)."
+
+You must identify and correct the actual underlying issue.
+
+Do not merely hide the error.
+
+### 5.1 Diagnose the response failure
+
+Inspect:
+
+- Resume API route.
+- Gemini response handling.
+- API response format.
+- Client API wrapper.
+- JSON parsing.
+- Zod validation.
+- Error handling.
+- Request payload.
+- File parsing.
+- Text extraction.
+- Save operation.
+
+Find out why the frontend considers an HTTP 200 response unreadable.
+
+Potential causes may include mismatched response contracts, an empty response body, unexpected HTML, incorrectly wrapped JSON, malformed model output or invalid client-side parsing.
+
+Do not assume a cause without inspecting the source.
+
+Establish a consistent server response contract.
+
+Example:
+
+<escape>{
+  "ok": true,
+  "data": {},
+  "error": null
+}</escape>
+
+For failures, use a meaningful error response with an appropriate HTTP status.
+
+Validate model output before returning it to the frontend.
+
+The frontend must distinguish:
+- Network failure.
+- API failure.
+- Empty response.
+- Invalid JSON.
+- Schema validation error.
+- File parsing error.
+- Unsupported file.
+- Gemini configuration failure.
+
+Never display "success" when parsing or saving failed.
+
+### 5.2 Give Resume Intelligence a clear purpose
+
+The user must immediately understand what this module does:
+
+**"Understand your resume, identify your strengths and discover what needs improvement for your target role."**
+
+Create a clean four-step workflow.
+
+**Step 1 — Upload your resume**
+
+Allow:
+- PDF upload.
+- DOCX upload.
+- TXT upload.
+- Direct text paste.
+
+Show a clean upload area.
+
+Display file name, size, upload progress and processing state.
+
+**Step 2 — Extract your profile**
+
+After the user clicks "Analyse Resume", process the document.
+
+Extract:
+- Education.
+- Skills.
+- Programming languages.
+- Frameworks.
+- Tools.
+- Projects.
+- Experience.
+- Internships.
+- Certifications.
+- Achievements.
+- Leadership activities.
+
+Show an extraction progress state.
+
+If parsing fails, explain exactly why and allow retry or text paste.
+
+**Step 3 — Review your profile**
+
+Display extracted information in clean editable sections.
+
+Allow:
+- Editing.
+- Adding missing information.
+- Removing incorrect information.
+- Saving changes.
+
+The user must not have to navigate through a large collection of unrelated text boxes.
+
+**Step 4 — Analyse against a target role**
+
+Allow the user to select an existing target role or add one.
+
+Display:
+
+- Resume strengths.
+- Missing skills.
+- Relevant project evidence.
+- Weak resume descriptions.
+- Missing measurable details.
+- Role-specific alignment.
+- Suggestions for improvement.
+
+Provide actual actionable recommendations.
+
+Do not generate fictitious achievements or metrics.
+
+### 5.3 Resume output
+
+Provide:
+- Updated resume profile.
+- Role-specific analysis.
+- Specific improvement recommendations.
+- A summary of claimed skills.
+- Connections to the Career Evidence Engine.
+
+Provide clear actions:
+
+- Save Profile.
+- Analyse for Target Role.
+- Improve Resume.
+- Add Skill Evidence.
+
+A user should understand exactly what to do after uploading the resume.
+
+### 5.4 Resume UX
+
+Use a guided interface with a visible step indicator.
+
+Do not place the raw resume, dozens of structured fields and multiple versions on the same screen simultaneously.
+
+Advanced controls such as duplicate, rename and compare versions can be placed in a secondary version-management view.
+
+---
+
+# PART 6 — FIX INTERVIEW ARENA: HIGHEST PRIORITY
+
+This is one of the most important features in RolexIQ.
+
+The current implementation is not acceptable.
+
+The AI does not audibly ask questions, the interface gets stuck on "Preparing question..." and the interview does not reliably progress or evaluate the candidate.
+
+**Do not consider this module finished until a complete interview has been tested from start to finish.**
+
+### 6.1 The intended user experience
+
+RolexIQ should feel like a genuine AI interview coach.
+
+The candidate should:
+
+1. Choose a company.
+2. Choose a role.
+3. Choose an interview type.
+4. Choose difficulty.
+5. Select duration.
+6. Enable voice or text mode.
+7. Start the interview.
+8. Hear the AI ask its first question.
+9. Answer naturally.
+10. Receive contextually relevant follow-up questions.
+11. Complete the interview.
+12. Receive a detailed evaluation report.
+
+The interviewer must use the selected role, job description, candidate profile and skill gaps.
+
+Do not use identical generic questions for every candidate.
+
+### 6.2 Fix the interview state machine
+
+Implement a reliable state machine.
+
+States:
+
+- Idle.
+- Configuring.
+- Preparing.
+- Ready.
+- Speaking.
+- Listening.
+- Thinking.
+- Submitting.
+- Evaluating.
+- Completed.
+- Paused.
+- Error.
+
+Transitions must be explicit.
+
+A session must never remain indefinitely on "Preparing question..." or "Thinking".
+
+Add appropriate timeouts, error handling and retry functionality.
+
+The interface must always reflect the real operation.
+
+### 6.3 Start-interview behaviour
+
+When the user clicks "Start Interview":
+
+1. Validate interview configuration.
+2. Create an interview session.
+3. Generate the first interview question using Gemini.
+4. Validate the response.
+5. Display the actual question.
+6. Speak the question aloud.
+7. After speech completes, enable listening.
+8. Accept the candidate's response.
+
+**The first question must be generated and displayed before the interface attempts to play it.**
+
+Do not depend on a successful Live API connection before showing a question.
+
+If voice initialisation fails, the user must still be able to view and answer the question.
+
+### 6.4 Voice interaction — actually make it work
+
+Investigate the existing Gemini Live WebSocket relay and determine why it fails.
+
+Check:
+- Model compatibility.
+- Live session configuration.
+- Authentication.
+- WebSocket connection.
+- Audio format.
+- Audio input.
+- Audio output.
+- Transcription.
+- Message handling.
+- Session lifecycle.
+- Barge-in.
+- Error recovery.
+
+Use current officially supported Gemini API models and formats.
+
+Do not assume an experimental or unavailable model ID works.
+
+Centralise model IDs in the existing configuration.
+
+Do not expose API keys to the browser.
+
+### Required voice fallback
+
+If Gemini Live is unavailable, provide a fully working sequential voice interview.
+
+Use:
+
+**Question generation → Text-to-speech → Candidate speech-to-text → Answer processing → Follow-up question generation → Next question.**
+
+The fallback must not be an empty interface.
+
+Implementation behaviour:
+
+1. Generate question through the interviewer endpoint.
+2. Display it on screen.
+3. Speak it through a genuine working TTS provider or supported browser speech synthesis.
+4. Clearly indicate that the interviewer is speaking.
+5. After speech ends, activate microphone listening.
+6. Transcribe the actual response.
+7. Show the transcript.
+8. Allow the candidate to edit it before submission.
+9. Submit it to Gemini.
+10. Generate the next appropriate question.
+11. Repeat until completion.
+
+Use actual browser speech APIs where supported.
+
+Load available voices correctly before speech synthesis.
+
+Handle:
+- Missing speech voices.
+- Browser incompatibility.
+- Permission denial.
+- Empty transcription.
+- Microphone failure.
+- TTS failure.
+- API timeout.
+- Network errors.
+
+Provide a clear "Play question again" button.
+
+Provide a working text-answer fallback.
+
+Do not show a fake speaking waveform.
+
+Any waveform or audio indicator must reflect actual audio activity.
+
+### 6.5 Adaptive interviewer
+
+The AI should:
+- Ask one question at a time.
+- Understand the candidate's previous response.
+- Ask relevant follow-up questions.
+- Challenge vague explanations.
+- Ask for concrete examples.
+- Test the candidate's actual knowledge.
+- Adjust difficulty based on demonstrated ability.
+- Avoid repetitive questions.
+- Maintain full conversation context.
+
+Example:
+
+AI: "How would you design a scalable API for processing a large number of transactions?"
+
+Candidate responds.
+
+AI: "You mentioned caching. How would you prevent stale data from being returned?"
+
+Candidate responds.
+
+AI: "What happens if two requests update the same transaction simultaneously?"
+
+This is the intended interaction quality.
+
+### 6.6 Interview evaluation
+
+At the end of the interview, send the actual transcript to the evaluation endpoint.
+
+The evaluator should return:
+
+- Overall score out of 100.
+- Question-level scores.
+- Technical accuracy.
+- Problem-solving.
+- Role-specific knowledge.
+- Practical depth.
+- Logical reasoning.
+- Trade-offs.
+- Answer structure.
+- Relevance and clarity.
+- Strengths.
+- Weaknesses.
+- Better sample answers.
+- Topics to revise.
+- Personalised next steps.
+
+Use an explainable rubric.
+
+Scores must be based on actual responses.
+
+Do not fabricate evaluation results.
+
+If evaluation fails, show the error and offer retry. Do not create a random fallback score.
+
+### 6.7 Confidence and nervousness coaching
+
+Preserve the supportive confidence coaching system.
+
+It must remain entirely separate from interview scoring.
+
+It may provide gentle speech-based suggestions for frequent hesitation, rushed speech, filler words and repeated sentence restarts when measurable.
+
+Examples:
+
+- "Take a breath. You have time to think."
+- "There is no need to rush. Explain your reasoning step by step."
+- "Take a moment to organise your thoughts."
+
+Do not diagnose emotions.
+
+Never infer nervousness from facial expressions, gaze, appearance or gestures.
+
+Never penalise nervousness, pauses, accents or communication differences.
+
+The camera must remain optional, disabled by default and local-preview-only.
+
+### 6.8 Redesigned Interview UI
+
+Design a professional interview environment.
+
+Use a sophisticated dark charcoal stage if appropriate.
+
+Include:
+
+- Elegant AI interviewer visual.
+- Current question.
+- Real speaking/listening status.
+- Candidate response area.
+- Live transcript.
+- Microphone control.
+- Replay question.
+- Pause.
+- Resume.
+- End interview.
+- Optional camera.
+- Discreet confidence coaching.
+
+The candidate's question and answer experience should receive most of the visual attention.
+
+Remove unnecessary panels.
+
+Use polished, calm animations.
+
+**Acceptance requirement:** A candidate must be able to start a text interview and complete an evaluation even when Live API or microphone access is unavailable. Where microphone and TTS are supported, a genuine voice conversation must work.
+
+---
+
+# PART 7 — REDESIGN LINKEDIN STUDIO
+
+The purpose of LinkedIn Studio should be immediately clear:
+
+**"Turn your real projects, skills and learning progress into professional LinkedIn content."**
+
+The existing screen is too crowded.
+
+Redesign it as a simple three-stage content creation workflow.
+
+### Step 1 — Choose what to share
+
+Show a clean evidence selector.
+
+Categories:
+- Project milestone.
+- Technical achievement.
+- Learning progress.
+- Hackathon experience.
+- Portfolio update.
+- Skill development.
+- Career milestone.
+
+Do not show dozens of evidence entries in an oversized scrolling panel.
+
+Use searchable selection, filters and a compact selected-evidence summary.
+
+### Step 2 — Generate your post
+
+Allow the candidate to select:
+- Post type.
+- Tone.
+- Length.
+- Selected evidence.
+
+Generate content using only the actual selected facts.
+
+The post should:
+- Sound professional.
+- Be natural.
+- Be personal without being exaggerated.
+- Avoid generic AI-sounding language.
+- Avoid invented metrics.
+- Avoid unsupported achievements.
+
+Keep the generated post editable.
+
+### Step 3 — Preview and publish manually
+
+Show one elegant post preview.
+
+Provide:
+- Edit.
+- Copy Post.
+- Save Draft.
+- Download Achievement Card.
+
+Do not show multiple huge panels competing with each other.
+
+Keep manual engagement analytics in a separate subsection.
+
+Make it clear that RolexIQ prepares content; it does not publish automatically to LinkedIn unless a genuine authorised integration exists.
+
+---
+
+# PART 8 — SIMPLIFY EVERY OTHER MODULE
+
+The product must have a clear, consistent purpose across every module.
+
+Each module must be understandable within a few seconds.
+
+## 8.1 Company DNA
+
+Purpose:
+
+**Understand what your target companies actually expect from applicants.**
+
+Create a guided workflow.
+
+First screen:
+- Add target company.
+- Add target role.
+- Paste job description or provide a URL.
+- Analyse requirements.
+
+After analysis, show a clean company intelligence summary.
+
+Display:
+- Most important requirements.
+- Required versus preferred skills.
+- Role responsibilities.
+- Technical tools.
+- Professional expectations.
+- Source and extraction date.
+
+Then allow the user to:
+- View candidate matches.
+- View missing skills.
+- Compare companies.
+
+Do not show a massive matrix immediately.
+
+Place the detailed cross-company matrix in a dedicated comparison view.
+
+Each requirement must be backed by a job-description quote or explicitly marked inferred.
+
+## 8.2 Skill Gap Explorer
+
+Purpose:
+
+**Understand which skills you need to develop to qualify for your target role.**
+
+Make the screen straightforward.
+
+Show:
+- Top five priority gaps.
+- Importance.
+- Current evidence.
+- Required competency.
+- Recommended next action.
+
+Clicking a gap should open a detail drawer containing:
+- Actual job requirement.
+- Supporting company source.
+- Candidate evidence.
+- Why it is a gap.
+- How to close it.
+
+Actions:
+- Add to Roadmap.
+- Find Project.
+- Practise in Interview.
+- Add Evidence.
+
+Do not flood the screen with every skill and every technical explanation simultaneously.
+
+## 8.3 Career Roadmap
+
+Purpose:
+
+**Follow a personalised weekly action plan to close your skill gaps.**
+
+Show:
+- Current week.
+- Weekly objective.
+- Key tasks.
+- Estimated hours.
+- Completion status.
+- Expected evidence.
+
+Use a clean vertical timeline or weekly plan.
+
+Allow users to:
+- Mark tasks complete.
+- Add evidence.
+- View resources.
+- Move through weeks.
+
+Explain why the plan changes when new interview or evidence results arrive.
+
+Preserve completed tasks and history.
+
+## 8.4 Portfolio Studio
+
+Purpose:
+
+**Build practical projects that demonstrate missing skills.**
+
+Display a focused list of personalised project recommendations.
+
+Each project card should have:
+- Title.
+- Why it matters.
+- Skills covered.
+- Difficulty.
+- Estimated effort.
+- Main deliverable.
+- View project details.
+
+Project details can contain:
+- Problem statement.
+- Architecture.
+- Suggested technologies.
+- Milestones.
+- Evaluation criteria.
+- Evidence submission.
+
+Do not put the entire technical specification into every project card.
+
+## 8.5 Career Progress
+
+Purpose:
+
+**See how your capabilities improve over time.**
+
+Show meaningful progress:
+- Skills strengthened.
+- Evidence added.
+- Learning tasks completed.
+- Projects completed.
+- Interview improvement.
+- Career readiness history.
+
+Avoid empty charts and invented statistics.
+
+If insufficient historical data exists, show a helpful empty state.
+
+## 8.6 Application Tracker
+
+Purpose:
+
+**Manage job applications and understand your application outcomes.**
+
+Use a simple application table with:
+- Company.
+- Role.
+- Date.
+- Status.
+- Next action.
+
+Allow filtering, searching and a Kanban view.
+
+Keep outcome insights separate from the main table.
+
+Explain sample-size limitations.
+
+## 8.7 Reports
+
+Purpose:
+
+**Generate useful career-preparation reports from your actual data.**
+
+Provide a clean report gallery.
+
+Each report should explain:
+- What it contains.
+- Which data it uses.
+- Whether enough information exists.
+
+Do not generate long filler reports.
+
+Allow the candidate to preview and export reports.
+
+## 8.8 Settings
+
+Make settings easy to find.
+
+Group:
+- Profile.
+- Privacy.
+- Appearance.
+- AI preferences.
+- Camera and microphone.
+- Data export.
+- Data deletion.
+
+---
+
+# PART 9 — CONNECT THE MODULES
+
+Do not allow the application to behave like twelve unrelated pages.
+
+All modules must share the same underlying candidate workspace.
+
+Implement and validate these relationships.
+
+### Resume → Career Evidence
+
+Skills extracted from a resume become claimed evidence.
+
+### Company DNA → Skill Gap Explorer
+
+Real job requirements become the basis for gap analysis.
+
+### Career Evidence → Company Match
+
+The candidate's demonstrated and assessed competencies determine supported readiness.
+
+### Skill Gap Explorer → Roadmap
+
+The highest-priority gaps create learning activities.
+
+### Skill Gap Explorer → Portfolio Studio
+
+Projects target the actual identified gaps.
+
+### Interview Arena → Career Evidence
+
+Interview responses update assessed evidence only when supported by the evaluation.
+
+### Interview Arena → Roadmap
+
+Weaknesses trigger personalised learning-plan adjustments.
+
+### Portfolio Studio → Career Evidence
+
+Project evidence updates demonstrated skills only when the submitted material supports them.
+
+### Application Tracker → Career Insights
+
+Application records inform carefully qualified observations.
+
+### Career Progress → Overview
+
+The dashboard shows actual changes over time.
+
+### LinkedIn Studio → Career Evidence
+
+The user generates posts from selected genuine evidence.
+
+All important actions should be reflected across related modules without requiring the user to re-enter information.
+
+---
+
+# PART 10 — DATA INTEGRITY AND DEMONSTRATION DATA
+
+The current application automatically shows a sample demo candidate.
+
+This creates confusion.
+
+Change the default experience.
+
+### New user experience
+
+A new user should start with a clean workspace.
+
+Guide them through:
+1. Set career objective.
+2. Upload resume.
+3. Choose target role.
+4. Add target companies.
+
+Only load sample demonstration data when the user explicitly chooses "Explore demo workspace".
+
+Demo data must:
+- Be clearly labelled.
+- Remain separate from real records.
+- Be removable.
+- Never be mixed with actual candidate information.
+
+Existing user records must not be deleted during redesign.
+
+Before modifying database structures, check backward compatibility and existing stored data.
+
+Provide migrations or safe conversion logic where required.
+
+Keep the existing Career Evidence Engine and deterministic scoring principles.
+
+Do not change scoring logic merely to make readiness appear higher.
+
+Make calculations understandable.
+
+---
+
+# PART 11 — SERVER AND GEMINI INTEGRATION AUDIT
+
+The visual redesign must not cover up broken backend functionality.
+
+Inspect the entire server integration.
+
+### Required checks
+
+1. Verify every configured Gemini model ID using current official Gemini API documentation.
+2. Ensure the text model is supported by the actual API.
+3. Verify Live API compatibility.
+4. Verify TTS support.
+5. Ensure API keys are server-side only.
+6. Validate every request and response.
+7. Standardise server response envelopes.
+8. Validate structured AI responses using Zod.
+9. Handle malformed responses.
+10. Avoid indefinite loading states.
+11. Implement request timeouts.
+12. Provide retry controls.
+13. Log useful development errors without exposing secrets.
+14. Verify every client API wrapper matches its server endpoint.
+
+Do not automatically assume that an API call succeeded just because it returned HTTP 200.
+
+Test actual response content.
+
+Add a genuine health-check mechanism.
+
+Do not display "Gemini connected" simply because an API key exists.
+
+### AI response requirements
+
+Every generated result must:
+- Be based on available candidate data.
+- Be relevant to the current module.
+- Use structured output.
+- Be validated before saving.
+- Distinguish facts from inference.
+- Avoid fabricated data.
+
+If an AI capability is unavailable, provide an explicit fallback.
+
+---
+
+# PART 12 — UX WRITING AND REDUCE TEXT
+
+This is essential.
+
+The current application contains too much explanatory information.
+
+Reduce on-screen text significantly.
+
+Use concise, natural language.
+
+Every module should contain:
+
+1. A clear heading.
+2. One sentence explaining its purpose.
+3. One primary action.
+4. A clean presentation of results.
+5. Optional detailed information when expanded.
+
+Avoid long explanatory paragraphs.
+
+Avoid repeating the same purpose in multiple places.
+
+Avoid technical implementation terms in the candidate-facing interface.
+
+For example, do not expose terms such as:
+- EvidenceRecord.
+- Provenance.
+- API response.
+- Schema validation.
+- Agent orchestration.
+- Priority breakdown.
+
+Translate them into useful user-facing language.
+
+Use tooltips or a small "How it works" section for advanced explanations.
+
+The product should feel intuitive, not instructional.
+
+---
+
+# PART 13 — INTERACTION QUALITY
+
+Every page must have polished, coherent interactions.
+
+Implement:
+
+- Proper pointer cursor.
+- Smooth hover states.
+- Click feedback.
+- Focus indicators.
+- Keyboard accessibility.
+- Loading feedback.
+- Success feedback.
+- Error feedback.
+- Empty states.
+- Disabled states.
+- Responsive dropdowns.
+- Proper modals.
+- Smooth navigation.
+
+Do not make decorative text appear clickable.
+
+Do not make buttons that do nothing.
+
+Do not make a button that only changes its label without performing the required operation.
+
+Every CTA must navigate to or perform the correct action.
+
+Use semantic HTML elements.
+
+Ensure clickable cards and controls are keyboard accessible.
+
+---
+
+# PART 14 — QUALITY ASSURANCE AND FUNCTIONAL TESTING
+
+Do not stop after applying visual changes.
+
+Test the actual workflows.
+
+### Resume Intelligence tests
+
+- Upload a PDF.
+- Upload a DOCX.
+- Paste resume text.
+- Extract resume information.
+- Review extracted fields.
+- Edit a field.
+- Save profile.
+- Refresh the page.
+- Confirm saved data persists.
+- Select a target role.
+- Run resume analysis.
+- Verify useful recommendations are produced.
+
+Fix the current HTTP 200 unreadable response.
+
+### Interview Arena tests
+
+- Open configuration.
+- Select company and role.
+- Start interview.
+- Confirm the first question appears.
+- Confirm the AI actually speaks where voice output is available.
+- Confirm replay works.
+- Enable microphone.
+- Confirm actual speech transcription.
+- Submit an answer.
+- Confirm contextual follow-up.
+- Complete multiple questions.
+- End interview.
+- Run evaluation.
+- Confirm a report is generated.
+- Confirm skill evidence and roadmap updates.
+
+Also test text-only mode without a microphone.
+
+### Company DNA tests
+
+- Add a company.
+- Paste an actual job description.
+- Extract requirements.
+- Confirm requirement quotes.
+- Compare companies.
+- Click through to source requirements.
+- Generate a report.
+
+### Skill Gap tests
+
+- Verify requirements are compared with actual candidate evidence.
+- Open a gap.
+- Add it to the roadmap.
+- Confirm the action is saved.
+
+### Roadmap tests
+
+- Generate the weekly plan.
+- Complete a task.
+- Add evidence.
+- Verify that completed tasks are preserved.
+- Trigger a roadmap update.
+- Confirm the reason is displayed.
+
+### LinkedIn Studio tests
+
+- Select evidence.
+- Generate a post.
+- Edit it.
+- Copy it.
+- Save a draft.
+- Export a capability card.
+
+### Application tests
+
+- Add an application.
+- Change its status.
+- Verify history.
+- Check analytics with insufficient sample data.
+
+### General tests
+
+- Navigate through every module.
+- Test all main actions.
+- Refresh and verify persistence.
+- Test error handling.
+- Test mobile layout.
+- Test keyboard focus.
+- Test reduced motion.
+- Test 375 px mobile width.
+- Test desktop width.
+- Check browser console.
+- Check server logs.
+
+Do not report tests as passed unless they actually ran.
+
+---
+
+# PART 15 — IMPLEMENTATION ORDER
+
+Do not make random disconnected modifications.
+
+Work in this order.
+
+### Phase 1 — Source audit
+
+Inspect:
+- Existing components.
+- Application routing.
+- API client.
+- Backend routes.
+- Gemini configuration.
+- Data store.
+- Authentication.
+- Interview state management.
+- Styling.
+- Animations.
+
+Identify root causes and dependencies.
+
+Preserve the existing functional foundation.
+
+### Phase 2 — Design system and application shell
+
+Implement:
+- New colour system.
+- Typography.
+- Layout system.
+- Sidebar.
+- Buttons.
+- Cards.
+- Inputs.
+- Tables.
+- Modals.
+- Hover states.
+- Motion system.
+
+Make the new design consistent throughout the application.
+
+### Phase 3 — Dashboard redesign
+
+Make the overview immediately understandable.
+
+Remove information clutter.
+
+Establish the next-best-action pattern.
+
+### Phase 4 — Resume Intelligence repair
+
+Fix the unreadable API response.
+
+Implement the four-step user workflow.
+
+Validate extraction, editing, saving and role-specific analysis.
+
+### Phase 5 — Interview Arena repair
+
+Investigate and fix the actual Live API error.
+
+Implement a reliable voice fallback.
+
+Generate and speak the first question before expecting a candidate response.
+
+Complete the entire interview and evaluation lifecycle.
+
+### Phase 6 — Redesign other modules
+
+Refine Company DNA, Skill Gap Explorer, Roadmap, Portfolio Studio, Career Progress, Application Tracker, LinkedIn Studio and Reports.
+
+Simplify each module without losing its functionality.
+
+### Phase 7 — Full integration and testing
+
+Test all inter-module data flows.
+
+Run production build, type checks, unit tests and browser checks.
+
+Fix critical issues before declaring completion.
+
+---
+
+# PART 16 — STRICT FINAL INSTRUCTIONS
+
+1. MODIFY THE EXISTING ROLEXIQ APPLICATION. Do not start an unrelated new project.
+
+2. Do not delete working functionality.
+
+3. Do not remove mandatory hackathon requirements.
+
+4. Do not replace real functionality with dummy UI.
+
+5. Do not use fabricated interview scores, resume analysis or company requirements.
+
+6. Do not pretend Gemini Live works if it does not.
+
+7. Do not leave the Interview Arena stuck in a loading or thinking state.
+
+8. Do not hide the resume API error. Identify and fix the cause.
+
+9. Do not automatically load demo candidate data.
+
+10. Preserve the existing data and relationships.
+
+11. Reduce visual clutter and improve the information hierarchy.
+
+12. Use the original brand palette with much more sophisticated colour distribution.
+
+13. Make the interface visually premium, bright, refined and modern rather than overwhelmingly dark.
+
+14. Use meaningful animations and tasteful 3D effects, not excessive motion.
+
+15. Ensure clickable elements have appropriate cursor and hover behaviour.
+
+16. Make the purpose of every module immediately understandable.
+
+17. Prioritise Resume Intelligence and Interview Arena functionality.
+
+18. Ensure that every module contributes to the same candidate journey.
+
+19. Do not stop after modifying the CSS.
+
+20. Do not stop after generating a plan or listing recommendations. Make the actual source-code changes.
+
+21. Test all major workflows in the browser.
+
+22. Provide an honest final report of what works, what failed and what still requires configuration.
+
+# FINAL PRODUCT VISION
+
+RolexIQ should feel like a premium, intelligent career companion.
+
+When a candidate opens it, they should immediately understand:
+
+- Where they currently stand.
+- What their target companies expect.
+- Which skills they need to develop.
+- What they should learn this week.
+- What projects they should build.
+- How they can practise interviews.
+- How their performance improves.
+- How they can prepare for actual job applications.
+
+The AI should do meaningful work in the background while the interface makes that intelligence simple to understand.
+
+**The final experience should be visually outstanding, remarkably intuitive, genuinely functional and technically credible.**
+
+Do not create more complexity. Create a better product.

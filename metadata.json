@@ -1,0 +1,6 @@
+{
+  "name": "RolexIQ",
+  "description": "From Potential to Proven Capability — AI Career Intelligence & Interview Readiness Platform.",
+  "requestFramePermissions": ["microphone", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

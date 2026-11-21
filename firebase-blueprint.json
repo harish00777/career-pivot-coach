@@ -1,0 +1,47 @@
+{
+  "entities": {
+    "UserWorkspace": {
+      "title": "UserWorkspace",
+      "description": "User-owned career intelligence workspace storing profile, resumes, job descriptions, evidence records, roadmap, portfolio projects, interview sessions, applications, posts, reports, and snapshots as native Firestore maps and lists.",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the workspace owner.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "version": {
+          "type": "number",
+          "description": "Schema version integer."
+        },
+        "onboardingComplete": {
+          "type": "boolean",
+          "description": "Whether onboarding wizard has been completed."
+        },
+        "isDemoData": {
+          "type": "boolean",
+          "description": "Whether current workspace holds sample demo data."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last write."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation."
+        }
+      },
+      "required": ["ownerId", "version", "onboardingComplete", "isDemoData", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/workspaces/{workspaceId}": {
+      "schema": { "$ref": "#/entities/UserWorkspace" },
+      "description": "Private career intelligence workspace strictly owned by userId."
+    }
+  }
+}
